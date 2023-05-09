@@ -1,4 +1,4 @@
-import { Box, Container, Heading, Text } from "@chakra-ui/react";
+import { Box, Container, Heading, SimpleGrid, Text } from "@chakra-ui/react";
 
 export default function Dashboard() {
 
@@ -16,20 +16,22 @@ export default function Dashboard() {
     }
 
     return (
-        
-      <Container as="section">
-        <Heading my="30px" p="10px">Dashboard</Heading>
-        <Text>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur, cupiditate!</Text>
-        <Text color="blue.300">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur, cupiditate!</Text>
+        <SimpleGrid p="10px" spacing={10} bg="gray.100" minChildWidth="200px">
+            <Box h="200px" border="2px solid"></Box>
+            <Box h="200px" border="2px solid"></Box>
+            <Box h="200px" border="2px solid"></Box>
+            <Box h="200px" border="2px solid"></Box>
 
-        <Box bg="orange.400">
-            <Text color="white">This is a box</Text> 
-        </Box>
+            <Box h="200px" border="2px solid"></Box>
+            <Box h="200px" border="2px solid"></Box>
+            <Box h="200px" border="2px solid"></Box>
+            <Box h="200px" border="2px solid"></Box>
 
-        <Box sx={BoxStyles}>
-            This is a box styled with sx
-        </Box>
+            <Box h="200px" border="2px solid"></Box>
+            <Box h="200px" border="2px solid"></Box>
+            <Box h="200px" border="2px solid"></Box>
+            <Box h="200px" border="2px solid"></Box>
 
-        </Container>
+        </SimpleGrid>
     )
   }
