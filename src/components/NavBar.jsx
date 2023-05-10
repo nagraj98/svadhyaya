@@ -12,7 +12,7 @@ export default function NavBar() {
     //     <Box w="100px" h="50px" flexGrow="2" bg="blue">4</Box>
     // </Flex>
 
-    <Flex as="nav" align="center">
+    <Flex as="nav" align="center" mb={4}>
         <Heading as="h1">Svadhyaya app</Heading>
         <Spacer />
         <HStack spacing="2">
