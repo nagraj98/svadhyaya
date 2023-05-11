@@ -8,28 +8,16 @@ export default function Create() {
   const { register, handleSubmit } = useForm()
 
   const onSubmit = async(data) => {
+    console.log("Submitted", data)
 
-    let res = await invoke("create_new_entry", {author:data.author, content: data.content, tag: data.tag})
-    console.log("response : ", res)
+    const savePath = await save();
+    if(!savePath) return;
 
+    await invoke("save_file", {path: savePath, contents:data.content})
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate>
-
-      <FormControl>
-        <FormLabel htmlFor='author'>
-          Author
-        </FormLabel>
-        <Input
-          id='author'
-          placeholder='Who is writing this entry'
-          {...register("author", {
-            required: "author is required"
-          })}
-        />
-      </FormControl>
-
       <FormControl>
         <FormLabel htmlFor='content'>
           Content
@@ -39,19 +27,6 @@ export default function Create() {
           placeholder='Enter your text here'
           {...register("content", {
             required: "some content is required"
-          })}
-        />
-      </FormControl>
-
-      <FormControl>
-        <FormLabel htmlFor='tag'>
-          Tag
-        </FormLabel>
-        <Input
-          id='tag'
-          placeholder='What type is this entry'
-          {...register("tag", {
-            // required: "tag is required"
           })}
         />
       </FormControl>
